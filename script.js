@@ -1,8 +1,6 @@
-// Global Varaibles
-const currentDisplay = document.querySelector(".currentDisplay");
-currentDisplay.innerHTML = "";
+// Global varaibles
 
-// Data Inputs
+// Data inputs
 
 let myLibrary = [
   {
@@ -25,6 +23,7 @@ let myLibrary = [
   },
 ];
 
+// Object constructor
 function book(title, author, page, read) {
   this.title = title;
   this.author = author;
@@ -32,6 +31,7 @@ function book(title, author, page, read) {
   this.read = read;
 }
 
+// Add new books to library
 function addBookToLibrary() {
   let a = document.getElementById("formTitle").value;
   let b = document.getElementById("formAuthor").value;
@@ -42,3 +42,23 @@ function addBookToLibrary() {
     myLibrary.push(new book(a, b, c, d));
   }
 }
+
+// Display each book as cards
+
+function displayBooks() {
+  const currentDisplay = document.querySelector(".currentDisplay");
+
+  myLibrary.forEach((myLibrary) => {
+    const card = document.createElement("div");
+    card.classList.add("card");
+    currentDisplay.appendChild(card);
+
+    for (let key in myLibrary) {
+      const text = document.createElement("p");
+      text.textContent = `${key}: ${myLibrary[key]}`;
+      card.appendChild(text);
+    }
+  });
+}
+
+displayBooks();
