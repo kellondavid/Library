@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  font-family: "Roboto", sans-serif;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  grid-template-rows: auto 1fr;
+  overflow: auto;
+}
+
+.header {
+}
+
+#submitInput {
+  grid-row: 2/-2;
+  display: grid;
+  justify-self: center;
+}
+
+.currentDisplay {
+  grid-row: 2/3;
+  grid-column: -2/-1;
+}
+
+.card {
+  grid-row: 2/-2;
+}
