@@ -8,15 +8,17 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <label for="title">Title:</label>
-    <input type="text" id="formTitle" name="title" required />
-    <label for="author">Author:</label>
-    <input type="text" id="formAuthor" name="author" required />
-    <label for="page">Page:</label>
-    <input type="text" id="formPage" name="page" required />
-    <label for="read">Read</label>
-    <input type="checkbox" id="formRead" name="read" value="" />
-    <input type="submit" value="Add Book" />
+    <form id="submitInput" action="">
+      <label for="title">Title:</label>
+      <input type="text" id="formTitle" name="title" required />
+      <label for="author">Author:</label>
+      <input type="text" id="formAuthor" name="author" required />
+      <label for="page">Page:</label>
+      <input type="text" id="formPage" name="page" required />
+      <label for="read">Read</label>
+      <input type="checkbox" id="formRead" name="read" value="" />
+      <input type="submit" id="submitBtn" value="Add Book" />
+    </form>
     <div class="currentDisplay"></div>
   </body>
   <script src="./script.js"></script>
