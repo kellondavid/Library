@@ -9,18 +9,6 @@ let myLibrary = [
     page: "123",
     read: true,
   },
-  {
-    title: "test2",
-    author: "test",
-    page: "123",
-    read: false,
-  },
-  {
-    title: "test3",
-    author: "test",
-    page: "143",
-    read: true,
-  },
 ];
 
 // Object constructor
@@ -48,12 +36,14 @@ submit.addEventListener("submit", () => {
   event.preventDefault();
   addBookToLibrary();
   submit.reset();
+  displayBooks();
 });
 
 // Display each book as cards
 
 function displayBooks() {
-  let currentDisplay = document.querySelector(".currentDisplay");
+  const currentDisplay = document.querySelector(".currentDisplay");
+  currentDisplay.textContent = "";
 
   myLibrary.forEach((myLibrary) => {
     let card = document.createElement("div");
@@ -69,7 +59,3 @@ function displayBooks() {
 }
 
 displayBooks();
-
-function lastBook() {
-  const lastItem = myLibrary[myLibrary.length - 1];
-}
