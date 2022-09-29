@@ -14,17 +14,28 @@ body {
 }
 
 .header {
+  justify-self: center;
 }
 
 #submitInput {
   grid-row: 2/-2;
-  display: grid;
+  display: flex;
+  flex-direction: column;
   justify-self: center;
+}
+
+.read {
+  display: flex;
+  gap: 10px;
 }
 
 .currentDisplay {
   grid-row: 2/3;
   grid-column: -2/-1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax (250px, 1fr));
+  gap: 15px;
+  padding: 2rem;
 }
 
 .card {

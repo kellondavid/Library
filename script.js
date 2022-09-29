@@ -55,6 +55,8 @@ function displayBooks() {
       text.textContent = `${key}: ${myLibrary[key]}`;
       card.appendChild(text);
     }
+    const readBtn = document.createElement("button");
+    card.appendChild(readBtn);
   });
 }
 
