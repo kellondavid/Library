@@ -57,7 +57,33 @@ function displayBooks() {
     }
     const readBtn = document.createElement("button");
     card.appendChild(readBtn);
+
+    if (myLibrary.read === true) {
+      readBtn.textContent = "Read";
+    }
+    if (myLibrary.read === false) {
+      readBtn.textContent = "Not Read";
+    }
+
+    readBtn.addEventListener("click", () => {
+      if (readBtn.textContent === "Read") {
+        readBtn.textContent = "Not Read";
+        myLibrary.read = false;
+      } else if (readBtn.textContent === "Not Read") {
+        readBtn.textContent = "Read";
+        myLibrary.read = true;
+      }
+    });
+    const remBtn = document.createElement("button");
+    card.appendChild(remBtn);
+    remBtn.textContent = "Remove";
+    remBtn.addEventListener("click", remBook);
   });
+}
+
+// Remove book function
+function remBook() {
+  this.card.textContent = "";
 }
 
 displayBooks();
