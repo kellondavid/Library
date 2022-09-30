@@ -1,5 +1,3 @@
-// Global varaibles
-
 // Data inputs
 
 let myLibrary = [
@@ -12,12 +10,16 @@ let myLibrary = [
 ];
 
 // Object constructor
-function book(title, author, page, read) {
+function Book(title, author, page, read) {
+  this.bookId = `book${++Book.id}`;
   this.title = title;
   this.author = author;
   this.page = page;
   this.read = read;
 }
+
+//static property
+Book.id = 0;
 
 // Add new books to library
 function addBookToLibrary() {
@@ -27,7 +29,7 @@ function addBookToLibrary() {
   let d = document.getElementById("formRead").checked;
 
   if (a !== "" && b !== "" && c !== "") {
-    myLibrary.push(new book(a, b, c, d));
+    myLibrary.push(new Book(a, b, c, d));
   }
 }
 
@@ -48,6 +50,7 @@ function displayBooks() {
   myLibrary.forEach((myLibrary) => {
     let card = document.createElement("div");
     card.classList.add("card");
+    card.classList.add(`${myLibrary.bookId}`);
     currentDisplay.appendChild(card);
 
     for (let key in myLibrary) {
@@ -77,13 +80,17 @@ function displayBooks() {
     const remBtn = document.createElement("button");
     card.appendChild(remBtn);
     remBtn.textContent = "Remove";
-    remBtn.addEventListener("click", remBook);
+    remBtn.onclick = remBook;
   });
 }
 
 // Remove book function
 function remBook() {
-  this.card.textContent = "";
+  const bookId = this.parentElement.classList[1];
+
+  const findBook = myLibrary.findIndex((element) => element.bookId === bookId);
+  const delBook = myLibrary.splice(findBook, 1);
+  this.parentElement.remove();
 }
 
 displayBooks();
