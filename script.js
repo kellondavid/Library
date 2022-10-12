@@ -10,12 +10,14 @@ let myLibrary = [
 ];
 
 // Object constructor
-function Book(title, author, page, read) {
-  this.bookId = `book${++Book.id}`;
-  this.title = title;
-  this.author = author;
-  this.page = page;
-  this.read = read;
+class Book {
+  constructor(title, author, page, read) {
+    this.bookId = `book${++Book.id}`;
+    this.title = title;
+    this.author = author;
+    this.page = page;
+    this.read = read;
+  }
 }
 
 //static property
